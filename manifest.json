@@ -1,6 +1,6 @@
 {
   "name": "NhxBetterChat",
-  "version_number": "1.0.0",
+  "version_number": "1.0.1",
   "website_url": "",
   "description": "Private mod: world-wide chat with timestamps, a sound alert, and messages kept while respawning. Not published on Thunderstore.",
   "dependencies": [

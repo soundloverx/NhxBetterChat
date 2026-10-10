@@ -15,7 +15,7 @@ namespace NhxBetterChat
     {
         private const string PluginGuid = "NhxBetterChat";
         private const string PluginName = "NhxBetterChat";
-        private const string PluginVersion = "1.0.0";
+        private const string PluginVersion = "1.0.1";
 
         internal static Plugin Instance { get; private set; }
         internal static ManualLogSource Log { get; private set; }
@@ -32,6 +32,15 @@ namespace NhxBetterChat
         {
             Instance = this;
             Log = Logger;
+
+            // Everything this mod does happens on the players' clients. A dedicated server still has a Chat object, and
+            // it handles each chat message before passing it on to the other players, so a failure in a patch there
+            // would stop the message from reaching anyone. On a server the mod therefore leaves the game untouched.
+            if (Paths.ProcessName == "valheim_server")
+            {
+                Log.LogInfo($"{PluginName} v{PluginVersion} is client-side only and does nothing on a dedicated server.");
+                return;
+            }
 
             _worldChat = Config.Bind(
                 "Chat",

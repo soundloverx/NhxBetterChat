@@ -39,6 +39,7 @@ BetterChat lets normal chat reach further (its `TalkDistance`, up to 100 m) and 
 
 - Client-side mod
 - Does not have server sync
+- Not needed on a dedicated server. If it's installed there anyway, it does nothing
 - Every player should install it. Players without it still receive world chat messages as normal chat, but for them the floating text doesn't follow the sender or show their name, and their own chat only reaches players nearby
 
 ## Configuration
